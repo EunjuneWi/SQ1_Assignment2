@@ -15,10 +15,8 @@
 // |  References  |
 // *--------------*
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 
 namespace Assignment2
 {
@@ -38,15 +36,70 @@ namespace Assignment2
         *   METHOD      :   GetRemainingSide
         *   DESCRIPTION :   This method takes length of two sides from right triangle,
         *                   and calcualte the remaining side.
+        *                   The calculated value will have truncated value with
+        *                   four numbers after decimal point.
         *   PARAMETERS  
-        *       string  firstSide   -   Length of one side. It must be decimal number.
-        *       string  secondSide  -   Length of another side. It must be decimal number.
+        *       string  strFirstSide   -   Length of one side. It must be decimal number.
+        *       string  strSecondSide  -   Length of another side. It must be decimal number.
         *   RETURNS     
         *       double  -  Length of the remaining side.
         */
-        public static double GetRemainingSide(string firstSide, string secondSide)
+        public static double GetRemainingSide(string strFirstSide, string strSecondSide)
         {
-            return 0.0;
+            double firstSide = 0;
+            double secondSide = 0;
+            double result = 0;
+            bool trueForValidInput = true;
+
+            // First convert the given length to decimal number
+            try
+            {
+                if (strFirstSide.Length != 0)
+                {
+                    firstSide = Convert.ToDouble(strFirstSide);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch
+            {
+                trueForValidInput = false;
+            }
+
+            try
+            {
+                if (trueForValidInput)
+                {
+                    if (strFirstSide.Length != 0)
+                    {
+                        secondSide = Convert.ToDouble(strSecondSide);
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+            }
+            catch
+            {
+                trueForValidInput = false;
+            }
+
+            // Calculate
+            if (trueForValidInput)
+            {
+                double poweredFirst = Math.Pow(firstSide, 2);
+                double poweredSecond = Math.Pow(secondSide, 2);
+                result = Math.Sqrt((poweredFirst + poweredSecond));
+            }
+
+            // Round the reuslt
+            result = Math.Round(result, 4);
+            
+            // Return the value
+            return result;
         }
     }
 }
