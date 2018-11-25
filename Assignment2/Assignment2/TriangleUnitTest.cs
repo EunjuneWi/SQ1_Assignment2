@@ -59,9 +59,9 @@ namespace Assignment2
         *   METHOD      :   NormalTestForRemainingSide
         *   DESCRIPTION :   This is a normal unit test for 'GetRemainingSide' of Triangle class.
         *                   It reads inputs from csv file and compares result.
-        *                   Due to double precision, the result should be compared with truncated number.
+        *                   Due to double precision, the result should be compared with rounded number.
         *                   In order to check test result without reading long numbers,
-        *                   all the result is truncated to have four digits right of the decimal point.
+        *                   all the result is rounded to have four digits right of the decimal point.
         *   PARAMETERS  :   N/A
         *   RETURNS     :   N/A
         */
