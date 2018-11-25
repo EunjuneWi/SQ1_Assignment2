@@ -36,7 +36,7 @@ namespace Assignment2
         *   METHOD      :   GetRemainingSide
         *   DESCRIPTION :   This method takes length of two sides from right triangle,
         *                   and calcualte the remaining side.
-        *                   The calculated value will have truncated value with
+        *                   The calculated value will have round the value with
         *                   four numbers after decimal point.
         *   PARAMETERS  
         *       string  strFirstSide   -   Length of one side. It must be decimal number.
@@ -49,51 +49,46 @@ namespace Assignment2
             double firstSide = 0;
             double secondSide = 0;
             double result = 0;
-            bool trueForValidInput = true;
 
             // First convert the given length to decimal number
+            // In case, input with wrong format is entered, it should still catch and throw new one
+            // Otherwise the test will always fail.
             try
             {
-                if (strFirstSide.Length != 0)
-                {
-                    firstSide = Convert.ToDouble(strFirstSide);
-                }
-                else
+                firstSide = Convert.ToDouble(strFirstSide);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                if (firstSide <= 0)
                 {
                     throw new Exception();
                 }
             }
-            catch
-            {
-                trueForValidInput = false;
-            }
-
+            
             try
             {
-                if (trueForValidInput)
-                {
-                    if (strFirstSide.Length != 0)
-                    {
-                        secondSide = Convert.ToDouble(strSecondSide);
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
+                secondSide = Convert.ToDouble(strSecondSide);
             }
             catch
             {
-                trueForValidInput = false;
+                throw new Exception();
+            }
+            finally
+            {
+                if (secondSide <= 0)
+                {
+                    throw new Exception();
+                }
             }
 
             // Calculate
-            if (trueForValidInput)
-            {
-                double poweredFirst = Math.Pow(firstSide, 2);
-                double poweredSecond = Math.Pow(secondSide, 2);
-                result = Math.Sqrt((poweredFirst + poweredSecond));
-            }
+            double poweredFirst = Math.Pow(firstSide, 2);
+            double poweredSecond = Math.Pow(secondSide, 2);
+            result = Math.Sqrt((poweredFirst + poweredSecond));
 
             // Round the reuslt
             result = Math.Round(result, 4);
