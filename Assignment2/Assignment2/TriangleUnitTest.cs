@@ -168,7 +168,7 @@ namespace Assignment2
             string secondSide = TestContext.DataRow["SecondSide"].ToString();
 
             // Act
-            double actual = Triangle.GetRemainingSide(firstSide, secondSide);
+            double actual = Triangle.GetArea(firstSide, secondSide);
 
             // Assert
         }
