@@ -178,7 +178,57 @@ namespace Assignment2
         */
         public static double GetAngle(string strFirstAngle, string strSecondAngle)
         {
-            return 0.0;
+            double firstAngle = 0;
+            double secondAngle = 0;
+            double result = 0;
+
+            // First convert the given length to decimal number
+            // In case, input with wrong format is entered, it should still catch and throw new one
+            // Otherwise the test will always fail.
+            try
+            {
+                firstAngle = Convert.ToDouble(strFirstAngle);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                if (firstAngle <= 0)
+                {
+                    throw new Exception();
+                }
+            }
+
+            try
+            {
+                secondAngle = Convert.ToDouble(strSecondAngle);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                if (secondAngle <= 0)
+                {
+                    throw new Exception();
+                }
+            }
+
+            // Calculate
+            result = 180 - firstAngle - secondAngle;
+            if (result <= 0)
+            {
+                throw new Exception();
+            }
+
+            // Round the result
+            result = Math.Round(result, 4);
+
+            // Return the value
+            return result;
         }
     }
 }
