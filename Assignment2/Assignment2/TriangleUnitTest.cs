@@ -144,5 +144,33 @@ namespace Assignment2
                             "firstSide:<{0}> secondSide:<{1}>",
                             new object[] { firstSide, secondSide });
         }
+
+
+
+        /*
+        *   METHOD      :   ExceptionTestForGetArea
+        *   DESCRIPTION :   This is a exception unit test for 'GetArea' of Triangle class.
+        *                   It reads inputs from csv file 'ExTestForRemSide.csv'.
+        *                   Since all the result should raise exception,
+        *                   There is no code for assert.
+        *   PARAMETERS  :   N/A
+        *   RETURNS     :   N/A
+        */
+        [TestMethod()]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                        @"..\..\TestInput\ExTestForRemSide.csv",
+                        "ExTestForRemSide#csv", DataAccessMethod.Sequential)]
+        [ExpectedException(typeof(Exception))]
+        public void ExceptionTestForGetArea()
+        {
+            // Arrange
+            string firstSide = TestContext.DataRow["FirstSide"].ToString();
+            string secondSide = TestContext.DataRow["SecondSide"].ToString();
+
+            // Act
+            double actual = Triangle.GetRemainingSide(firstSide, secondSide);
+
+            // Assert
+        }
     }
 }
