@@ -161,5 +161,24 @@ namespace Assignment2
             // Return the value
             return result;
         }
+
+
+
+        /*
+        *   METHOD      :   GetAngle
+        *   DESCRIPTION :   This method takes size of two angle from triangle,
+        *                   and calcualte the remaining angle.
+        *                   The calculated value will have round the value with
+        *                   four numbers after decimal point.
+        *   PARAMETERS  
+        *       string  strFirstAngle   -   One of the angle. It must be decimal number.
+        *       string  strSecondAngle  -   Another angle. It must be decimal number.
+        *   RETURNS     
+        *       double  -  Angle of the remaining one.
+        */
+        public static double GetAngle(string strFirstAngle, string strSecondAngle)
+        {
+            return 0.0;
+        }
     }
 }

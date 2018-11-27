@@ -172,5 +172,37 @@ namespace Assignment2
 
             // Assert
         }
+
+
+
+        /*
+        *   METHOD      :   NormalTestForGetAngle
+        *   DESCRIPTION :   This is a normal unit test for 'GetAngle' of Triangle class.
+        *                   It reads inputs from csv file and compares result.
+        *                   Due to double precision, the result should be compared with rounded number.
+        *                   In order to check test result without reading long numbers,
+        *                   all the result is rounded to have four digits right of the decimal point.
+        *   PARAMETERS  :   N/A
+        *   RETURNS     :   N/A
+        */
+        [TestMethod()]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                        @"..\..\TestInput\NorTestForGetAngle.csv",
+                        "NorTestForGetAngle#csv", DataAccessMethod.Sequential)]
+        public void NormalTestForGetAngle()
+        {
+            // Arrange
+            string firstAngle = TestContext.DataRow["FirstAngle"].ToString();
+            string secondAngle = TestContext.DataRow["SecondAngle"].ToString();
+            double expected = Convert.ToDouble(TestContext.DataRow["Expected"]);
+
+            // Act
+            double actual = Triangle.GetAngle(firstAngle, secondAngle);
+
+            // Assert
+            Assert.AreEqual(expected, actual,
+                            "firstAngle:<{0}> secondAngle:<{1}>",
+                            new object[] { firstAngle, secondAngle });
+        }
     }
 }
