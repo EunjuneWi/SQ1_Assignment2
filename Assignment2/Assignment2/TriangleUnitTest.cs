@@ -150,7 +150,7 @@ namespace Assignment2
         /*
         *   METHOD      :   ExceptionTestForGetArea
         *   DESCRIPTION :   This is a exception unit test for 'GetArea' of Triangle class.
-        *                   It reads inputs from csv file 'ExTestForRemSide.csv'.
+        *                   It reads inputs from csv file 'ExTestForGetArea.csv'.
         *                   Since all the result should raise exception,
         *                   There is no code for assert.
         *   PARAMETERS  :   N/A
@@ -158,8 +158,8 @@ namespace Assignment2
         */
         [TestMethod()]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
-                        @"..\..\TestInput\ExTestForRemSide.csv",
-                        "ExTestForRemSide#csv", DataAccessMethod.Sequential)]
+                        @"..\..\TestInput\ExTestForGetArea.csv",
+                        "ExTestForGetArea#csv", DataAccessMethod.Sequential)]
         [ExpectedException(typeof(Exception))]
         public void ExceptionTestForGetArea()
         {
