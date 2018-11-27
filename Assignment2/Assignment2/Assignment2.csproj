@@ -47,16 +47,34 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Triangle.cs" />
+    <Compile Include="TriangleUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TriangleUI.Designer.cs">
+      <DependentUpon>TriangleUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="TriangleUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TestInput\ExTestForGetAngle.csv" />
+    <None Include="TestInput\ExTestForGetArea.csv" />
     <None Include="TestInput\ExTestForRemSide.csv" />
+    <None Include="TestInput\NorTestForGetAngle.csv" />
+    <None Include="TestInput\NorTestForGetArea.csv" />
     <None Include="TestInput\NorTestForRemSide.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TriangleUI.resx">
+      <DependentUpon>TriangleUI.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
