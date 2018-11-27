@@ -113,7 +113,53 @@ namespace Assignment2
         */
         public static double GetArea(string strFirstSide, string strSecondSide)
         {
-            return 0.0;
+            double firstSide = 0;
+            double secondSide = 0;
+            double result = 0;
+
+            // First convert the given length to decimal number
+            // In case, input with wrong format is entered, it should still catch and throw new one
+            // Otherwise the test will always fail.
+            try
+            {
+                firstSide = Convert.ToDouble(strFirstSide);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                if (firstSide <= 0)
+                {
+                    throw new Exception();
+                }
+            }
+
+            try
+            {
+                secondSide = Convert.ToDouble(strSecondSide);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                if (secondSide <= 0)
+                {
+                    throw new Exception();
+                }
+            }
+
+            // Calculate
+            result = firstSide * secondSide / 2;
+
+            // Round the reuslt
+            result = Math.Round(result, 4);
+
+            // Return the value
+            return result;
         }
     }
 }
