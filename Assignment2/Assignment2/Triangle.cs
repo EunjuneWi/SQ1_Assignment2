@@ -90,7 +90,7 @@ namespace Assignment2
             double poweredSecond = Math.Pow(secondSide, 2);
             result = Math.Sqrt((poweredFirst + poweredSecond));
 
-            // Round the reuslt
+            // Round the result
             result = Math.Round(result, 4);
 
             // Return the value
@@ -155,7 +155,7 @@ namespace Assignment2
             // Calculate
             result = firstSide * secondSide / 2;
 
-            // Round the reuslt
+            // Round the result
             result = Math.Round(result, 4);
 
             // Return the value
