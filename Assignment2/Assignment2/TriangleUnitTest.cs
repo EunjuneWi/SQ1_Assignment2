@@ -204,5 +204,33 @@ namespace Assignment2
                             "firstAngle:<{0}> secondAngle:<{1}>",
                             new object[] { firstAngle, secondAngle });
         }
+
+
+
+        /*
+        *   METHOD      :   ExceptionTestForGetAngle
+        *   DESCRIPTION :   This is a exception unit test for 'GetAngle' of Triangle class.
+        *                   It reads inputs from csv file 'ExTestForGetAngle.csv'.
+        *                   Since all the result should raise exception,
+        *                   There is no code for assert.
+        *   PARAMETERS  :   N/A
+        *   RETURNS     :   N/A
+        */
+        [TestMethod()]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                        @"..\..\TestInput\ExTestForGetAngle.csv",
+                        "ExTestForGetAngle#csv", DataAccessMethod.Sequential)]
+        [ExpectedException(typeof(Exception))]
+        public void ExceptionTestForGetAngle()
+        {
+            // Arrange
+            string firstAngle = TestContext.DataRow["FirstAngle"].ToString();
+            string secondAngle = TestContext.DataRow["SecondAngle"].ToString();
+
+            // Act
+            double actual = Triangle.GetAngle(firstAngle, secondAngle);
+
+            // Assert
+        }
     }
 }
