@@ -112,5 +112,37 @@ namespace Assignment2
 
             // Assert
         }
+
+
+
+        /*
+        *   METHOD      :   NormalTestForGetArea
+        *   DESCRIPTION :   This is a normal unit test for 'GetArea' of Triangle class.
+        *                   It reads inputs from csv file and compares result.
+        *                   Due to double precision, the result should be compared with rounded number.
+        *                   In order to check test result without reading long numbers,
+        *                   all the result is rounded to have four digits right of the decimal point.
+        *   PARAMETERS  :   N/A
+        *   RETURNS     :   N/A
+        */
+        [TestMethod()]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV",
+                        @"..\..\TestInput\NorTestForGetArea.csv",
+                        "NorTestForGetArea#csv", DataAccessMethod.Sequential)]
+        public void NormalTestForGetArea()
+        {
+            // Arrange
+            string firstSide = TestContext.DataRow["FirstSide"].ToString();
+            string secondSide = TestContext.DataRow["SecondSide"].ToString();
+            double expected = Convert.ToDouble(TestContext.DataRow["Expected"]);
+
+            // Act
+            double actual = Triangle.GetArea(firstSide, secondSide);
+
+            // Assert
+            Assert.AreEqual(expected, actual,
+                            "firstSide:<{0}> secondSide:<{1}>",
+                            new object[] { firstSide, secondSide });
+        }
     }
 }

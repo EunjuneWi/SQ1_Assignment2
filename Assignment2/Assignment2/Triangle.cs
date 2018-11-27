@@ -68,7 +68,7 @@ namespace Assignment2
                     throw new Exception();
                 }
             }
-            
+
             try
             {
                 secondSide = Convert.ToDouble(strSecondSide);
@@ -92,9 +92,28 @@ namespace Assignment2
 
             // Round the reuslt
             result = Math.Round(result, 4);
-            
+
             // Return the value
             return result;
+        }
+
+
+
+        /*
+        *   METHOD      :   GetArea
+        *   DESCRIPTION :   This method takes length of two sides from right triangle,
+        *                   and calcualte the area.
+        *                   The calculated value will have round the value with
+        *                   four numbers after decimal point.
+        *   PARAMETERS  
+        *       string  strFirstSide   -   Length of one side. It must be decimal number.
+        *       string  strSecondSide  -   Length of another side. It must be decimal number.
+        *   RETURNS     
+        *       double  -  Length of the remaining side.
+        */
+        public static double GetArea(string strFirstSide, string strSecondSide)
+        {
+            return 0.0;
         }
     }
 }
